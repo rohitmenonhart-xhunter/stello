@@ -11,33 +11,29 @@ const FrameworkLink: React.FC<FrameworkLinkProps> = ({ template }) => (
     href={`/git?url=https://github.com/${template.githubRepo}.git`}
     data-state="closed"
     data-discover="true"
-    className="items-center justify-center"
+    className="flex flex-col items-center gap-2 p-4 rounded-lg transition-all hover:bg-purple-500/10"
   >
     <div
-      className={`inline-block ${template.icon} w-8 h-8 text-4xl transition-theme opacity-25 hover:opacity-100 hover:text-purple-500 dark:text-white dark:opacity-50 dark:hover:opacity-100 dark:hover:text-purple-400 transition-all`}
+      className={`${template.icon} w-12 h-12 text-4xl transition-all opacity-75 hover:opacity-100 hover:text-purple-500 dark:text-white dark:opacity-50 dark:hover:opacity-100 dark:hover:text-purple-400`}
       title={template.label}
     />
+    <span className="text-sm text-bolt-elements-textSecondary">{template.label}</span>
   </a>
 );
 
 const StarterTemplates: React.FC = () => {
-  // Debug: Log available templates and their icons
-  React.useEffect(() => {
-    console.log(
-      'Available templates:',
-      STARTER_TEMPLATES.map((t) => ({ name: t.name, icon: t.icon })),
-    );
-  }, []);
-
   return (
-    <div className="flex flex-col items-center gap-4">
-      <span className="text-sm text-gray-500">start a blank app with your favorite stack TAP ON YOUR FAV STACK</span>
-      <div className="flex justify-center">
-        <div className="flex w-70 flex-wrap items-center justify-center gap-4">
-          {STARTER_TEMPLATES.map((template) => (
-            <FrameworkLink key={template.name} template={template} />
-          ))}
-        </div>
+    <div className="flex flex-col items-center w-full max-w-4xl mx-auto">
+      <h1 className="text-4xl lg:text-6xl font-bold text-bolt-elements-textPrimary mb-6 animate-fade-in">
+        Start a blank app with your favorite stack
+      </h1>
+      <p className="text-lg lg:text-xl mb-12 text-bolt-elements-textSecondary text-center animate-fade-in animation-delay-200">
+        Choose from our curated collection of modern frameworks and tools to kickstart your project
+      </p>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade-in animation-delay-300">
+        {STARTER_TEMPLATES.map((template) => (
+          <FrameworkLink key={template.name} template={template} />
+        ))}
       </div>
     </div>
   );

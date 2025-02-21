@@ -309,12 +309,6 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
               <>
                 {/* Hero Section */}
                 <div className="mt-[8vh] max-w-chat mx-auto text-center px-4 lg:px-0">
-                  <h1 className="text-3xl lg:text-6xl font-bold text-bolt-elements-textPrimary mb-4 animate-fade-in">
-                    Start a blank app with your favorite stack
-                  </h1>
-                  <p className="text-md lg:text-xl mb-8 text-bolt-elements-textSecondary animate-fade-in animation-delay-200">
-                    Choose from our curated collection of modern frameworks and tools to kickstart your project.
-                  </p>
                   <div className="flex justify-center mb-12 animate-fade-in animation-delay-300">
                     <StarterTemplates />
                   </div>
