@@ -22,6 +22,9 @@ const FrameworkLink: React.FC<FrameworkLinkProps> = ({ template }) => (
 );
 
 const StarterTemplates: React.FC = () => {
+  // Filter out Remix from the templates
+  const filteredTemplates = STARTER_TEMPLATES.filter((template) => !template.name.toLowerCase().includes('remix'));
+
   return (
     <div className="flex flex-col items-center w-full max-w-4xl mx-auto">
       <h1 className="text-4xl lg:text-6xl font-bold text-bolt-elements-textPrimary mb-6 animate-fade-in">
@@ -31,7 +34,7 @@ const StarterTemplates: React.FC = () => {
         Choose from our curated collection of modern frameworks and tools to kickstart your project
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade-in animation-delay-300">
-        {STARTER_TEMPLATES.map((template) => (
+        {filteredTemplates.map((template) => (
           <FrameworkLink key={template.name} template={template} />
         ))}
       </div>
