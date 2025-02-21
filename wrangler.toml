@@ -16,3 +16,5 @@ workers_dev = true
 kv_persist = false
 cache_persist = false
 durable_objects_persist = false
+watch = false
+update_check = false
